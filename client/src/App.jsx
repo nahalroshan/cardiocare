@@ -8,7 +8,7 @@ import Prediction from './pages/prediction';
 
 
 function App() {
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = window.innerWidth <= 765;
 
   return (
     <Router>
