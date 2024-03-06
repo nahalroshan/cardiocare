@@ -6,6 +6,7 @@ import Home from "./components/home";
 import { AuthProvider } from "./contexts/authContext";
 import Prediction from './pages/prediction';
 import DietCard from './pages/diet';
+import ExcersiseCard from './pages/excersise';
 
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path='/predict' element={<Prediction />} />
             <Route path='/diet' element={<DietCard />} />
+            <Route path='/exc' element={<ExcersiseCard />} />
+            
             
           </Routes>
           
