@@ -33,12 +33,14 @@ const Login = () => {
     return (
         <div>
             {userLoggedIn && (<Navigate to={'/home'} replace={true} />)}
+            
 
-            <main className="w-full h-screen flex self-center place-content-center place-items-center">
-                <div className='flex flex-col justify-center'>
-                <img src="https://cdn-icons-png.flaticon.com/512/2869/2869584.png" alt="" className="w-64 mr-64 hidden md:block"></img>
-                <h1 className=' text-gray-800 text-6xl font-semibold mr-12  '>Cardio Care</h1>
-                </div>
+            <main className="w-[447px] h-[508px] left-[128px] top-[100px] absolute ">
+            {/* w-full h-screen flex self-center place-content-center place-items-center */}
+                {/* <div className='flex flex-col justify-center'> */}
+                {/* <img src="https://cdn-icons-png.flaticon.com/512/2869/2869584.png" alt="" className="w-64 mr-64 hidden md:block"></img> */}
+                {/* <h1 className=' text-gray-800 text-6xl font-semibold mr-12  '>Cardio Care</h1> */}
+                {/* </div> */}
             
                 <div className="w-96 text-gray-600 space-y-5 p-4 shadow-xl border rounded-xl">
                     <div className="text-center">
@@ -112,6 +114,25 @@ const Login = () => {
                         </svg>
                         {isSigningIn ? 'Signing In...' : 'Continue with Google'}
                     </button>
+                </div>
+                {/* <div className="SunsetOnVenus w-96 h-96 px-96 py-40 bg-white shadow border border-black justify-center items-center inline-flex">
+                <div className="Gradient w-96 h-96 relative">
+                    <div className="Eclipse w-96 h-96 left-0 top-[49px] absolute bg-gradient-to-b from-pink-400 to-orange-300 rounded-full blur-3xl" />
+                    <div className="Planet w-96 h-96 left-[251px] top-0 absolute bg-gradient-to-b from-pink-500 via-orange-400 to-slate-500 rounded-full blur-3xl" />
+                </div>
+                </div> */}
+                
+                <div className="SunsetOnVenus w-full h-screen ">
+                    <div className="Gradient w-[25px] h-[20px] left-[400px] top-[10px] absolute">
+                    <div className="Eclipse w-[629.21px] h-[629.21px] left-0 top-[37.60px] absolute bg-gradient-to-b from-pink-400 to-orange-300 rounded-full blur-[200px]" />
+                    <div className="Planet w-[460.40px] h-[460.40px] left-[192.60px] top-0 absolute bg-gradient-to-b from-pink-500 via-orange-400 to-slate-500 rounded-full blur-[100px]" />
+                </div>
+                
+                {/* <div className="Gradient w-[851px] h-[869px] left-[375px] top-[166px] absolute">
+                    <div className="Eclipse w-[820px] h-[820px] left-0 top-[49px] absolute bg-gradient-to-b from-pink-400 to-orange-300 rounded-full blur-[200px]" />
+                    <div className="Planet w-[600px] h-[600px] left-[251px] top-0 absolute bg-gradient-to-b from-pink-500 via-orange-400 to-slate-500 rounded-full blur-[100px]" />
+                </div> */}
+                {/* <img className="Texture w-[1600px] h-[1200px] left-0 top-0 absolute mix-blend-overlay" src={img} /> */}
                 </div>
                
             </main>

@@ -110,9 +110,9 @@ const DietCard = () => {
         </div>
       </div>
 
-      <footer>
+      {/* <footer>
         <p style={{ textAlign: 'center' }}>Every healthy choice you make is a step towards a stronger heart and a brighter future.</p>
-      </footer>
+      </footer> */}
     </>
   );
 }

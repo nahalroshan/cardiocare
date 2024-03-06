@@ -15,7 +15,9 @@ function App() {
     <Router>
       <AuthProvider>
         <Header />
-        <div className="w-full h-screen flex flex-col bg-gradient-to-r from-white to-sky-300">
+        <div className="w-[1600px] h-[1200px] relative bg-orange-50 shadow">
+        
+        
           <Routes>
             <Route path="/" element={<Login />} /> {/* Set the default route */}
             <Route path="/login" element={<Login />} />
@@ -25,6 +27,7 @@ function App() {
             <Route path='/diet' element={<DietCard />} />
             
           </Routes>
+          
         </div>
       </AuthProvider>
     </Router>
