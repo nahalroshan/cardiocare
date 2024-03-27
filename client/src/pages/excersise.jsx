@@ -1,11 +1,11 @@
 import React from 'react';
 import '../pages/style.css'; // Import your CSS file
-import diary from '../assets/img/diary.jpg';
-import salt from '../assets/img/sodium.jpg';
-import fruit from '../assets/img/fruitveg.jpg';
-import oils from '../assets/img/healthyoils.jpg';
-import grain from '../assets/img/wholegrain.jpg';
-import protien from '../assets/img/protiens.jpg';
+import week1 from '../assets/img_exc/week1.jpg';
+import week2 from '../assets/img_exc/week2_2.png';
+import week3 from '../assets/img_exc/week 3.png';
+import week4 from '../assets/img_exc/week4.png';
+import week5 from '../assets/img_exc/week5.png';
+
 
 const ExcersiseCard = () => {
   return (
@@ -19,7 +19,7 @@ const ExcersiseCard = () => {
       <div className="container">
         <div className="card__container">
           <article className="card__article">
-            <img src={fruit} alt="image" className="card__img" />
+            <img src={week1} alt="image" className="card__img" />
             <div className="card__data">
               <h2 className="card__title">Week 1</h2>
               <span className="card__description">
@@ -35,7 +35,7 @@ const ExcersiseCard = () => {
           </article>
 
           <article className="card__article">
-            <img src={diary} alt="image" className="card__img" />
+            <img src={week2} alt="image" className="card__img" />
             <div className="card__data">
               <h2 className="card__title">Week 2</h2>
               <span className="card__description">
@@ -51,7 +51,7 @@ const ExcersiseCard = () => {
           </article>
 
           <article className="card__article">
-            <img src={grain} alt="image" className="card__img" />
+            <img src={week3} alt="image" className="card__img" />
             <div className="card__data">
               <h2 className="card__title">Week 3</h2>
               <span className="card__description">
@@ -66,7 +66,7 @@ const ExcersiseCard = () => {
           </article>
 
           <article className="card__article">
-            <img src={protien} alt="image" className="card__img" />
+            <img src={week4} alt="image" className="card__img" />
             <div className="card__data">
               <h2 className="card__title">Week 4</h2>
               <span className="card__description">
@@ -82,7 +82,7 @@ const ExcersiseCard = () => {
           </article>
 
           <article className="card__article">
-            <img src={oils} alt="image" className="card__img" />
+            <img src={week5} alt="image" className="card__img" />
             <div className="card__data">
               <h2 className="card__title">Week 5-6</h2>
               <span className="card__description">
