@@ -76,53 +76,82 @@ function Chat() {
     }
   };
   return (
-    <div className="flex justify-center py-10 min-h-screen">
+    <div className="flex flex-col justify-between py-10 min-h-screen">
       {user ? (
-        <div>
-          <div> Logged in as {user.displayName}</div>
-
+        <div className="items-center mt-4 flex flex-col justify-center ml-20">
+          <h1 className="text-6xl text-blue-950">The CardioCare Community</h1>
           <div
-            className="flex flex-col gap-5 overflow-y-auto"
-            style={{ maxHeight: "calc(100vh - 200px)" }}
+            className="flex mt-4 bg-sky-100  mb-2 flex-col items gap-5 p-8 border-blue-950 border rounded-xl overflow-y-hidden overflow-x-hidden"
+            style={{ maxHeight: "calc(100vh - 240px)", width: "500px" }}
           >
-            {messages.map((msg) => (
+            {messages.map((msg, index) => (
               <div
                 key={msg.id}
+                ref={index === messages.length - 1 ? messagesEndRef : null}
                 className={`message flex ${
                   msg.data.uid === user.uid ? "justify-end" : "justify-start"
                 }`}
               >
                 <div
                   className={`message flex flex-row p-3 gap-3 rounded-lg items-center ${
-                    msg.data.uid === user.uid
-                      ? "text-white bg-blue-500"
-                      : "bg-white"
+                    msg.data.uid === user.uid ? "text-blue-950" : "bg-white"
                   }`}
                 >
-                  <img
-                    className="w-10 h-10 rounded-full"
-                    src={msg.data.photoURL}
-                    alt="User avatar"
-                  />
-                  {msg.data.text}
+                  {msg.data.uid === user.uid ? (
+                    <div className="flex flex-row-reverse gap-3 items-center">
+                      <img
+                        className="w-8 h-8 rounded-full"
+                        src={msg.data.photoURL}
+                        alt="User avatar"
+                      />
+                      <div className="bg-blue-500 text-white p-3 rounded-lg">
+                        {msg.data.text}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="flex items-center">
+                      <img
+                        className="w-8 h-8 rounded-full ml-3"
+                        src={msg.data.photoURL}
+                        alt="User avatar"
+                      />
+                      <div className="bg-white p-3 rounded-lg text-black">
+                        {msg.data.text}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
+            <div ref={messagesEndRef} />
           </div>
+        </div>
+      ) : (
+        <div className="flex justify-center">
+          <button
+            onClick={handleGoogleLogin}
+            className="bg-blue-500 text-white px-4 py-2 rounded-lg focus:outline-none hover:bg-blue-600"
+          >
+            Login with Google
+          </button>
+        </div>
+      )}
+      <div className="flex flex-col items-center">
+        <div className="mb-2">
           <input
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
+            className="border border-gray-400 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500"
+            placeholder="Type your message..."
           />
-          <button
-            className=" bg-white rounded-[10px] hover:bg-blue-400 p-3"
-            onClick={sendMessage}
-          >
-            Send Message
-          </button>
         </div>
-      ) : (
-        <button onClick={handleGoogleLogin}>Login with Google</button>
-      )}
+        <button
+          onClick={sendMessage}
+          className="bg-blue-500 text-white px-4 py-2 rounded-lg focus:outline-none hover:bg-blue-600"
+        >
+          Send Message
+        </button>
+      </div>
     </div>
   );
 }
