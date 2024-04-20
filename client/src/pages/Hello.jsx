@@ -1,225 +1,42 @@
-import React, { useState, useEffect } from "react";
-
-function Prediction() {
-  const [age, setAge] = useState("");
-  const [sex, setSex] = useState("");
-  const [cp, setCp] = useState("");
-  const [trestbps, setTrestbps] = useState("");
-  const [chol, setChol] = useState("");
-  const [fbs, setFbs] = useState("");
-  const [restecg, setRestecg] = useState("");
-  const [thalach, setThalach] = useState("");
-  const [exang, setExang] = useState("");
-  const [oldpeak, setOldpeak] = useState("");
-  const [slope, setSlope] = useState("");
-  const [ca, setCa] = useState("");
-  const [thal, setThal] = useState("");
-  const [data, setData] = useState([{}]);
-  const [prediction, setPrediction] = useState(null);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = {
-      age,
-      sex,
-      cp,
-      trestbps,
-      chol,
-      fbs,
-      restecg,
-      thalach,
-      exang,
-      oldpeak,
-      slope,
-      ca,
-      thal,
-    };
-    fetch("http://localhost:5000/data", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    }).then((res) =>
-      res.json().then((data) => {
-        setData(data.prediction[0]);
-        console.log("hii");
-        console.log(data.prediction[0]);
-      })
-    );
-  };
-
-  return (
-    <div>
-      <h1>Heart Disease Prediction</h1>
-      <form onSubmit={handleSubmit}>
-        <h1>Hello</h1>
-        <label htmlFor="age">Age:</label>
-        <input
-          type="text"
-          id="age"
-          name="age"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
-        />
-        <br />
-
-        <label htmlFor="sex">Sex:</label>
-        <select
-          id="sex"
-          name="sex"
-          value={sex}
-          onChange={(e) => setSex(e.target.value)}
-        >
-          <option value="1">Male</option>
-          <option value="0">Female</option>
-        </select>
-        <br />
-
-        <label htmlFor="cp">Chest Pain Type:</label>
-        <select
-          id="cp"
-          name="cp"
-          value={cp}
-          onChange={(e) => setCp(e.target.value)}
-        >
-          <option value="0">Typical Angina</option>
-          <option value="1">Atypical Angina</option>
-          <option value="2">Non-anginal Pain</option>
-          <option value="3">Asymptomatic</option>
-        </select>
-        <br />
-
-        <label htmlFor="trestbps">Resting Blood Pressure:</label>
-        <input
-          type="text"
-          id="trestbps"
-          name="trestbps"
-          value={trestbps}
-          onChange={(e) => setTrestbps(e.target.value)}
-        />
-        <br />
-
-        <label htmlFor="chol">Serum Cholesterol:</label>
-        <input
-          type="text"
-          id="chol"
-          name="chol"
-          value={chol}
-          onChange={(e) => setChol(e.target.value)}
-        />
-        <br />
-
-        <label htmlFor="fbs">Fasting Blood Sugar:</label>
-        <select
-          id="fbs"
-          name="fbs"
-          value={fbs}
-          onChange={(e) => setFbs(e.target.value)}
-        >
-          <option value="1">Greater than 120 mg/dl</option>
-          <option value="0">Less than 120 mg/dl</option>
-        </select>
-        <br />
-
-        <label htmlFor="restecg">Resting ECG Results:</label>
-        <select
-          id="restecg"
-          name="restecg"
-          value={restecg}
-          onChange={(e) => setRestecg(e.target.value)}
-        >
-          <option value="0">Normal</option>
-          <option value="1">Having ST-T wave abnormality</option>
-          <option value="2">
-            Probable or definite left ventricular hypertrophy
-          </option>
-        </select>
-        <br />
-
-        <label htmlFor="thalach">Max Heart Rate:</label>
-        <input
-          type="text"
-          id="thalach"
-          name="thalach"
-          value={thalach}
-          onChange={(e) => setThalach(e.target.value)}
-        />
-        <br />
-
-        <label htmlFor="exang">Exercise-induced Angina:</label>
-        <select
-          id="exang"
-          name="exang"
-          value={exang}
-          onChange={(e) => setExang(e.target.value)}
-        >
-          <option value="1">Yes</option>
-          <option value="0">No</option>
-        </select>
-        <br />
-
-        <label htmlFor="oldpeak">ST Depression:</label>
-        <input
-          type="text"
-          id="oldpeak"
-          name="oldpeak"
-          value={oldpeak}
-          onChange={(e) => setOldpeak(e.target.value)}
-        />
-        <br />
-
-        <label htmlFor="slope">Slope Of Peak Exercise ST Segment:</label>
-        <select
-          id="slope"
-          name="slope"
-          value={slope}
-          onChange={(e) => setSlope(e.target.value)}
-        >
-          <option value="0">Upsloping</option>
-          <option value="1">Flat</option>
-          <option value="2">Downsloping</option>
-        </select>
-        <br />
-
-        <label htmlFor="ca">Number of Major vessels:</label>
-        <input
-          type="text"
-          id="ca"
-          name="ca"
-          value={ca}
-          onChange={(e) => setCa(e.target.value)}
-        />
-        <br />
-
-        <label htmlFor="thal">Thalassemia:</label>
-        <select
-          id="thal"
-          name="thal"
-          value={thal}
-          onChange={(e) => setThal(e.target.value)}
-        >
-          <option value="0">Normal</option>
-          <option value="1">Fixed Defect</option>
-          <option value="2">Reversible Defect</option>
-        </select>
-        <br />
-
+<div id="gallery" className="relative w-full" data-carousel="slide">
+    
+    <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
         
-        <button onClick={handleSubmit} className="text-4xl font-bold bg-blue-500"> now predict</button>
-      </form>
-      
-        <div>
-          <h2>Prediction Result</h2>
-          {data === 0 ? (
-            <p className="bg-green-500 ">No chance of having heart disease</p>
-          ) : (
-            <p className="bg-red-500">Chance of having heart disease</p>
-          )}
+        <div className="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src={Heart} className="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="" />
+        </div>
+        
+        <div className="hidden duration-700 ease-in-out" data-carousel-item="active">
+            <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" className="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="" />
         </div>
       
+        <div className="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" className="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="" />
+        </div>
+        
+        <div className="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" className="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="" />
+        </div>
+       
+        <div className="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" className="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="" />
+        </div>
     </div>
-  );
-}
-
-export default Prediction;
+    
+    <button type="button" className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 1 1 5l4 4"/>
+            </svg>
+            <span className="sr-only">Previous</span>
+        </span>
+    </button>
+    <button type="button" className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4"/>
+            </svg>
+            <span className="sr-only">Next</span>
+        </span>
+    </button>
+</div>

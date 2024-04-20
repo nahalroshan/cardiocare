@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Navigate, Link } from "react-router-dom";
-
+import Banner from "../login/home.png";
 import { useAuth } from "../../../contexts/authContext";
 import {
   doSignInWithEmailAndPassword,
   doSignInWithGoogle,
 } from "../../../dbconfig/auth";
+import Home from "../../home";
+import { motion } from "framer-motion";
 const Login = () => {
   const { userLoggedIn } = useAuth();
 
@@ -37,16 +39,32 @@ const Login = () => {
     <div>
       {userLoggedIn && <Navigate to={"/home"} replace={true} />}
 
-      <main className="w-full h-screen flex flex-col self-center place-content-center place-items-center">
-        <div className="flex flex-col justify-center">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/2869/2869584.png"
-            alt=""
-            className="w-64 mr-64 hidden md:block"
-          ></img>
-          <h1 className=" text-gray-800 text-6xl font-semibold mr-12  ">
-            Cardio Care
-          </h1>
+      <main className="w-full h-screen flex flex-row self-center place-content-center place-items-center">
+        <div className="flex flex-col justify-center mr-24">
+          <img src={Home} alt="" className="w-64 mr-64 hidden md:block"></img>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
+          >
+            <h1 className="text-gray-800 text-7xl font-semibold ml-4">
+              Cardio Care
+            </h1>
+          </motion.div>
+          <motion.div
+            className="m-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2.5 }}
+          >
+            <p className="text-gray-700 text-md leading-relaxed">
+              We're dedicated to your heart health and overall well-being.
+              <br></br> Our platform offers a comprehensive suite of services
+              designed <br></br>to support you on your journey to a healthier
+              lifestyle.
+            </p>
+          </motion.div>
         </div>
 
         <div className="w-96 text-gray-600 space-y-5 p-4 shadow-xl border rounded-xl">

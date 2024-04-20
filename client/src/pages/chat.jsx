@@ -81,8 +81,8 @@ function Chat() {
         <div className="items-center mt-4 flex flex-col justify-center ml-20">
           <h1 className="text-6xl text-blue-950">The CardioCare Community</h1>
           <div
-            className="flex mt-4 bg-sky-100  mb-2 flex-col items gap-5 p-8 border-blue-950 border rounded-xl overflow-y-hidden overflow-x-hidden"
-            style={{ maxHeight: "calc(100vh - 240px)", width: "500px" }}
+            className="flex mt-4   mb-2 flex-col items gap-5 p-8  border-bg-gradient-to-r from-transparent to-gray-200   rounded-xl overflow-y-auto "
+            style={{ maxHeight: "calc(100vh - 280px)", width: "500px" }}
           >
             {messages.map((msg, index) => (
               <div
@@ -94,7 +94,7 @@ function Chat() {
               >
                 <div
                   className={`message flex flex-row p-3 gap-3 rounded-lg items-center ${
-                    msg.data.uid === user.uid ? "text-blue-950" : "bg-white"
+                    msg.data.uid === user.uid ? "text-blue-950" : "text-white"
                   }`}
                 >
                   {msg.data.uid === user.uid ? (
@@ -109,7 +109,7 @@ function Chat() {
                       </div>
                     </div>
                   ) : (
-                    <div className="flex items-center">
+                    <div className="flex flex-row gap-3 items-center">
                       <img
                         className="w-8 h-8 rounded-full ml-3"
                         src={msg.data.photoURL}

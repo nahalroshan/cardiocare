@@ -5,7 +5,7 @@ import Header from "./components/header";
 import Home from "./components/home";
 import { AuthProvider } from "./contexts/authContext";
 import Prediction from './pages/prediction';
-import Hello from './pages/Hello';
+
 import DietCard from './pages/diet';
 import ExcersiseCard from './pages/exec'
 import Chat from './pages/chat';
@@ -17,14 +17,14 @@ function App() {
     <Router>
       <AuthProvider>
         <Header />
-        <div className="w-full h-screen flex flex-col bg-gradient-to-r from-white to-sky-300">
+        <div className="w-full h-screen flex flex-col ">
           <Routes>
             <Route path="/" element={<Login />} /> {/* Set the default route */}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/home" element={<Home />} />
             <Route path='/predict' element={<Prediction />} />
-            <Route path='/hello' element={<Hello />} />
+          
             <Route path='/diet' element={<DietCard />} />
             <Route path='/exec' element={<ExcersiseCard />} />
             <Route path='/chat' element={<Chat />} />
