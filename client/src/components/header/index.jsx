@@ -12,9 +12,9 @@ const Header = () => {
                 userLoggedIn
                     ?
                     <>
-                    <div className='ml-auto mr-8 border border-gray-700 rounded-lg p-2 '> 
+                    <div className='ml-auto mr-8 border mt-8 border-gray-700 rounded-lg p-2 '> 
 
-                    <button onClick={() => { doSignOut().then(() => { navigate('/login') }) }} className='text-sm text-blue-600 underline'>Logout</button>
+                    <button onClick={() => { doSignOut().then(() => { navigate('/landing') }) }} className='text-sm text-blue-800 '>Logout</button>
                     </div>
                         
 

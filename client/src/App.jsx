@@ -9,6 +9,7 @@ import Prediction from './pages/prediction';
 import DietCard from './pages/diet';
 import ExcersiseCard from './pages/exec'
 import Chat from './pages/chat';
+import Landing from './pages/landing';
 
 function App() {
   const isMobile = window.innerWidth <= 768;
@@ -19,12 +20,12 @@ function App() {
         <Header />
         <div className="w-full h-screen flex flex-col ">
           <Routes>
-            <Route path="/" element={<Login />} /> {/* Set the default route */}
+            <Route path="/" element={<Landing />} /> {/* Set the default route */}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/home" element={<Home />} />
             <Route path='/predict' element={<Prediction />} />
-          
+            <Route path='/landing' element={<Landing />} />
             <Route path='/diet' element={<DietCard />} />
             <Route path='/exec' element={<ExcersiseCard />} />
             <Route path='/chat' element={<Chat />} />
